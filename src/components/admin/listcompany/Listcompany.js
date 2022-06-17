@@ -34,6 +34,7 @@ function Listcompany(props) {
       setBusiness(res.data);
     }
   }
+
   async function deleteDataBusiness(id) {
     const path = `api/v1/businesses`;
     const res = await deleteDataByPath(path, "", id);
@@ -42,33 +43,40 @@ function Listcompany(props) {
       loadDataBussiness();
     }
   }
+
   async function searchDataBussiness(id) {
     const path = `api/v1/businesses`;
     const res = await createDataByPath(path, "", id);
     console.log(res);
-    if (res !== null && res !== undefined && res.status === 200) {
-      loadDataBussiness();
-    }
+    id !== '' ? res.data === '' 
+                ? setBusiness(null)
+                : setBusiness([res.data])
+              : loadDataBussiness();
   }
+
   async function pushUpdateLayout(id) {
     history.push(`/updateBusiness/${id}`);
     window.location.reload();
   }
-  const { onSubmit } = props;
+
+  // const { onSubmit } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const typingTimeoutRef = useRef(null);
+
   function handleSearchTermChange(e) {
     const value = e.target.value;
     setSearchTerm(value);
-    if (!onSubmit) return;
+    // if (!onSubmit) return;
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
     }
     typingTimeoutRef.current = setTimeout(() => {
-      const formValues = {
-        searchTerm: value,
-      };
-      onSubmit(formValues);
+      console.log("Value: ", value);
+      // const formValues = {
+      //   searchTerm: value,
+      // };
+      // onSubmit(formValues);
+      searchDataBussiness(value);
     }, 300);
   }
   return (

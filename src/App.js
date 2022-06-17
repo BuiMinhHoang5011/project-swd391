@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Routes, Route, Router } from "react-router-dom";
 import "./App.css";
@@ -19,7 +20,7 @@ function App() {
   return (
     <Col>
       <UserAuthContextProvider history={history}>
-        <Listcompany onSubmit={handleFiltersChange} />
+        {/* <Listcompany onSubmit={handleFiltersChange} /> */}
         <Routes>
           <Route
             path="/home"
