@@ -47,11 +47,12 @@ function Listcompany(props) {
   async function searchDataBussiness(id) {
     const path = `api/v1/businesses`;
     const res = await createDataByPath(path, "", id);
-    console.log(res);
-    id !== '' ? res.data === '' 
-                ? setBusiness(null)
-                : setBusiness([res.data])
-              : loadDataBussiness();
+    console.log("id: ", id);
+    console.log("Search res: ", res.data);
+    // id !== '' ? res.data === '' 
+    //             ? setBusiness(null)
+    //             : setBusiness(res.data)
+    //           : loadDataBussiness();
   }
 
   async function pushUpdateLayout(id) {

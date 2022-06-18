@@ -12,6 +12,8 @@ export async function getDataByPathTest(path, accessToken, data) {
       endpoint = `${ip}/${path}?${data}`;
     }
     const res = await axios.get(endpoint, option);
+    console.log("endpoint: ", endpoint);
+    console.log("Response getData: ", res);
     return res;
   } catch (error) {
     return error.response;
