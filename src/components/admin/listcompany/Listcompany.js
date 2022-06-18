@@ -49,10 +49,10 @@ function Listcompany(props) {
     const res = await createDataByPath(path, "", id);
     console.log("id: ", id);
     console.log("Search res: ", res.data);
-    // id !== '' ? res.data === '' 
-    //             ? setBusiness(null)
-    //             : setBusiness(res.data)
-    //           : loadDataBussiness();
+    id !== '' ? res.data === '' 
+                ? setBusiness(null)
+                : setBusiness(res.data)
+              : loadDataBussiness();
   }
 
   async function pushUpdateLayout(id) {
