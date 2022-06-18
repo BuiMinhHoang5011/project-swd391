@@ -51,7 +51,7 @@ function Listcompany(props) {
     console.log("Search res: ", res.data);
     id !== '' ? res.data === '' 
                 ? setBusiness(null)
-                : setBusiness(res.data)
+                : setBusiness([res.data])
               : loadDataBussiness();
   }
 
