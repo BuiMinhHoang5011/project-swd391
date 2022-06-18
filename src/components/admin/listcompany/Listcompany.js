@@ -53,6 +53,7 @@ function Listcompany(props) {
                 ? setBusiness(null)
                 : setBusiness([res.data])
               : loadDataBussiness();
+              //Hoa quanque
   }
 
   async function pushUpdateLayout(id) {
