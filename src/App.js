@@ -13,13 +13,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import { createBrowserHistory } from "history";
 export const history = createBrowserHistory();
 function App() {
-  function handleFiltersChange(newFilter) {
-    console.log("New filters:", newFilter);
-  }
   return (
     <Col>
       <UserAuthContextProvider history={history}>
-        <Listcompany onSubmit={handleFiltersChange} />
         <Routes>
           <Route
             path="/home"
@@ -39,8 +35,7 @@ function App() {
             element={<UpdateBusiness />}
           />
         </Routes>
-      </UserAuthContextProvider>
-      //{" "}
+      </UserAuthContextProvider>{" "}
     </Col>
   );
 }

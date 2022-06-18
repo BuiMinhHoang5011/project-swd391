@@ -12,12 +12,32 @@ export async function getDataByPathTest(path, accessToken, data) {
       endpoint = `${ip}/${path}?${data}`;
     }
     const res = await axios.get(endpoint, option);
+    console.log("endpoint: ", endpoint);
+    console.log("Response getData: ", res);
     return res;
   } catch (error) {
     return error.response;
   }
 }
 
+// export async function createDataByPath(path, accessToken, data) {
+//   try {
+//     let endpoint = "";
+//     let body = {};
+//     let option = {};
+//     if (accessToken && accessToken !== "") option = getOptions(accessToken);
+//     if (path !== "") {
+//       endpoint = `${ip}/${path}`;
+//     }
+//     if (data !== "") {
+//       body = data;
+//     }
+//     const res = await axios.post(endpoint, body, option);
+//     return res;
+//   } catch (error) {
+//     return error.response;
+//   }
+// }
 export async function createDataByPath(path, accessToken, data) {
   try {
     let endpoint = "";
@@ -25,12 +45,12 @@ export async function createDataByPath(path, accessToken, data) {
     let option = {};
     if (accessToken && accessToken !== "") option = getOptions(accessToken);
     if (path !== "") {
-      endpoint = `${ip}/${path}`;
+      endpoint = `${ip}/${path}/${data}`;
     }
     if (data !== "") {
       body = data;
     }
-    const res = await axios.post(endpoint, body, option);
+    const res = await axios.get(endpoint, body, option);
     return res;
   } catch (error) {
     return error.response;
