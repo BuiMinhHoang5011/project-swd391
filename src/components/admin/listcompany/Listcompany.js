@@ -34,7 +34,6 @@ function Listcompany(props) {
       setBusiness(res.data);
     }
   }
-
   async function deleteDataBusiness(id) {
     const path = `api/v1/businesses`;
     const res = await deleteDataByPath(path, "", id);
@@ -43,58 +42,37 @@ function Listcompany(props) {
       loadDataBussiness();
     }
   }
-
   async function searchDataBussiness(id) {
     const path = `api/v1/businesses`;
     const res = await createDataByPath(path, "", id);
     console.log("id: ", id);
     console.log("Search res: ", res.data);
-<<<<<<< HEAD
     id !== ""
       ? res.data === ""
         ? setBusiness(null)
         : setBusiness([res.data])
       : loadDataBussiness();
-=======
-    id !== '' ? res.data === '' 
-                ? setBusiness(null)
-                : setBusiness([res.data])
-              : loadDataBussiness();
-              //Hoa quanque
->>>>>>> f63c3ea73a4700d9ce0a4a8946cf702314c31966
   }
 
   async function pushUpdateLayout(id) {
     history.push(`/updateBusiness/${id}`);
     window.location.reload();
   }
-<<<<<<< HEAD
-=======
-
   // const { onSubmit } = props;
->>>>>>> f63c3ea73a4700d9ce0a4a8946cf702314c31966
   const [searchTerm, setSearchTerm] = useState("");
   const typingTimeoutRef = useRef(null);
-
   function handleSearchTermChange(e) {
     const value = e.target.value;
     setSearchTerm(value);
-<<<<<<< HEAD
-=======
     // if (!onSubmit) return;
->>>>>>> f63c3ea73a4700d9ce0a4a8946cf702314c31966
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
     }
     typingTimeoutRef.current = setTimeout(() => {
-<<<<<<< HEAD
-=======
-      console.log("Value: ", value);
       // const formValues = {
       //   searchTerm: value,
       // };
       // onSubmit(formValues);
->>>>>>> f63c3ea73a4700d9ce0a4a8946cf702314c31966
       searchDataBussiness(value);
     }, 300);
   }
@@ -119,7 +97,7 @@ function Listcompany(props) {
         </div>
         <div className="btn-create">
           <button type="button" class="btn btn-success">
-            Create Business
+            Create Account
           </button>
         </div>
       </div>
@@ -161,15 +139,14 @@ function Listcompany(props) {
                             <i class="dw dw-more"></i>
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item">
+                            {/* <a class="dropdown-item">
                               <i class="dw dw-eye"></i> View
-                            </a>
-
+                            </a> */}
                             <a
                               class="dropdown-item"
                               onClick={() => pushUpdateLayout(e.businessId, e)}
                             >
-                              <i class="dw dw-edit2"></i> Edit
+                              <i class="dw dw-edit2"></i> View Detail
                             </a>
                             <a
                               class="dropdown-item"

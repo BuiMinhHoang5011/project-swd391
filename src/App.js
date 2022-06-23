@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import React, { Component } from "react";
 import { Routes, Route, Router } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
@@ -17,10 +17,6 @@ function App() {
   return (
     <Col>
       <UserAuthContextProvider history={history}>
-<<<<<<< HEAD
-=======
-        {/* <Listcompany onSubmit={handleFiltersChange} /> */}
->>>>>>> f63c3ea73a4700d9ce0a4a8946cf702314c31966
         <Routes>
           <Route
             path="/home"
